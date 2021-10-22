@@ -13,6 +13,17 @@ export const getReviews = async (req, res) => {
 }
   
 
-export const createReview = (req, res) => {
-  res.send('Review Creation');
+export const createReview = async (req, res) => {
+    const review = req.body
+
+    const newReview = new Review(review)
+
+    try {
+      await newReview.save()
+
+      res.status(201).json(newReview)
+    }
+    catch (error){
+      res.status(409).json({ message: error.message})
+    }
 }
