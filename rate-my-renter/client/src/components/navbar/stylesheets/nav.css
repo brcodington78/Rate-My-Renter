@@ -1,0 +1,45 @@
+#nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+#session-btns {
+  display: flex;
+  flex-direction: row;
+}
+
+.session-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 24px;
+  padding: 8px 12px;
+  height: 40px;
+  margin: 8px;
+  font-weight: 600;
+  transition: all .5s ease;
+  min-width: 80px;
+}
+
+.session-btn {
+  cursor: pointer;
+}
+
+.session-btn:hover {
+  filter: brightness(90%);
+}
+
+#signup-btn {
+  background: #01b585;
+  color: white
+}
+
+#login-btn:hover {
+  background: rgb(259, 259, 259);
+}
