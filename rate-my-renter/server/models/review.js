@@ -6,7 +6,7 @@ const reviewSchema = mongoose.Schema({
     houseRating: Number,
     nicenessRating: Number,
     depositReturnRating: Number,
-    hotness: Number,
+    hotnessRating: Number,
     createdAt: {
         type: Date,
         default: new Date()

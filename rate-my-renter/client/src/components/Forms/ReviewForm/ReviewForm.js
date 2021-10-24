@@ -1,6 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {createReview} from '../../../actions/reviews';
 
 function ReviewForm() {
+
+    const dispatch = useDispatch();
 
     let [reviewData, setReviewData] = useState({
         reviewText: "",
@@ -8,7 +12,7 @@ function ReviewForm() {
         propertyRating: 3,
         nicenessRating: 3,
         depositReturnRating: 3,
-        hotness: 3,
+        hotnessRating: 3,
         // Not sure if I need to include this if the database will automatically set the date
         // createdAt: {
         //     type: Date,
@@ -16,7 +20,13 @@ function ReviewForm() {
         // }
     });
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+            e.preventDefault();
+
+            dispatch(createReview(reviewData));
+    }
+
+    const clear = () => {
 
     }
 
@@ -24,11 +34,11 @@ function ReviewForm() {
     return (
       <>
         <h2>Form Title</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="price-fairness-input">
             How fair is the rent? (between 1 and 5):
           </label>
-          <br/>
+          <br />
           <input
             type="range"
             id="price-fairness-input"
@@ -44,7 +54,7 @@ function ReviewForm() {
           <label htmlFor="property-rating-input">
             What is the quality of the property you rent? (between 1 and 5):
           </label>
-          <br/>
+          <br />
           <input
             type="range"
             id="property-rating-input"
@@ -56,11 +66,11 @@ function ReviewForm() {
               setReviewData({ ...reviewData, propertyRating: e.target.value })
             }
           />
-          <br/>
+          <br />
           <label htmlFor="niceness-rating-input">
             How nice is your rentor? (between 1 and 5):
           </label>
-          <br/>
+          <br />
           <input
             type="range"
             id="niceness-rating-input"
@@ -72,12 +82,12 @@ function ReviewForm() {
               setReviewData({ ...reviewData, nicenessRating: e.target.value })
             }
           />
-          <br/>
+          <br />
           <label htmlFor="deposit-return-rating-input">
             How likely are they to actually return your security deposit?
             (between 1 and 5):
           </label>
-          <br/>
+          <br />
           <input
             type="range"
             id="deposit-return-rating-input"
@@ -92,12 +102,11 @@ function ReviewForm() {
               })
             }
           />
-          <br/>
+          <br />
           <label htmlFor="hotness-rating-input">
-            Would you fuck your landlord?
-            (between 1 and 5):
+            Would you fuck your landlord? (between 1 and 5):
           </label>
-          <br/>
+          <br />
           <input
             type="range"
             id="hotness-rating-input"
@@ -112,8 +121,10 @@ function ReviewForm() {
               })
             }
           />
+          <br />
+          <label htmlFor="landlord-review-text"> Let your landlord and others
+          know how you really feel! </label>
           <br/>
-          <label htmlFor="landlord-review-text" /> Let your landlord and others know how you really feel!
           <textarea
             id="landlord-review-text"
             name="landlord-review"
@@ -121,10 +132,12 @@ function ReviewForm() {
             rows="10"
             value={reviewData.reviewText}
             onChange={(e) =>
-              setReviewData({ ...reviewData, reviewText: e.target.value })}>
-            </textarea>
-            <br/>
+              setReviewData({ ...reviewData, reviewText: e.target.value })
+            }
+          ></textarea>
+          <br />
           <button>Submit Review!</button>
+          <button onClick={clear}>Clear Form</button>
         </form>
       </>
     );

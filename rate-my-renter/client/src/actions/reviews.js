@@ -14,3 +14,13 @@ export const getReviews = () => async (dispatch) => {
 
 
 }
+
+export const createReview = (newReview) => async (dispatch) => {
+    try {
+        const {data} = await api.createReview(newReview);
+
+        dispatch({ type: "CREATE_REVIEW", payload: data })
+    } catch (error) {
+        console.log(error.message)
+    }
+}
