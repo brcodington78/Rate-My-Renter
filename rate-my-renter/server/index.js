@@ -7,11 +7,12 @@ import reviewRoutes from './routes/reviews.js';
 
 const app = express();
 
-app.use("/reviews", reviewRoutes)
 
 app.use(express.json({limit: "30mb", extended: true}))
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors())
+
+app.use("/reviews", reviewRoutes)
 
 const CONNECTION_URL = "mongodb+srv://dev:poopybutt11@cluster0.tbzqw.mongodb.net/rateMyRenterDB?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;

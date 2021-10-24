@@ -3,8 +3,8 @@
 
 export default (reviews = [], action) => {
     switch (action.type) {
-        case 'FETCH_ALL':
-            return reviews;
+        case 'FETCH_ALL_REVIEWS':
+            return action.payload;
         case 'CREATE':
             return reviews
         default:
