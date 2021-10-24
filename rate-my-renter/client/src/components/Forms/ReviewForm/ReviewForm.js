@@ -94,7 +94,7 @@ function ReviewForm() {
           />
           <br/>
           <label htmlFor="hotness-rating-input">
-            How likely are they to actually return your security deposit?
+            Would you fuck your landlord?
             (between 1 and 5):
           </label>
           <br/>
