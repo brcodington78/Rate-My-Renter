@@ -24,7 +24,7 @@ function App() {
           </header>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path='/' exact component={Auth} />
+            <Route path='/auth' exact component={Auth} />
           </Switch>
         </div>
       </BrowserRouter>

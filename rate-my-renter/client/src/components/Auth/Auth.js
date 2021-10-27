@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import UserForm from '../Forms/UserForm/UserRegForm.js'
+
 
 function Auth() {
+
+    const isSignup = false;
     return (
-        <div>
-            AUTH
-        </div>
+        <>
+          <h1>{isSignup ? "Sign Up!" : "Log in!" }</h1>
+          <UserForm />  
+        </>
     )
 }
 

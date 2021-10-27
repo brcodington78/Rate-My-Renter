@@ -12,7 +12,9 @@ const Nav = (props) => {
   </div>) 
   :(
     <div id="session-btns">
-      <div id="signup-btn" className="session-btn">Sign up</div>
+      <Link to="/auth">
+        <div id="signup-btn" className="session-btn">Sign up</div>
+      </Link>
       <div id="login-btn" className="session-btn">Login</div>
     </div>
   )
@@ -24,9 +26,9 @@ const Nav = (props) => {
   )
 
   const displayLeft = (
-    <div>
+    <Link to="/">
       <div>Logo</div>
-    </div>
+    </Link>
   )
 
   return (
