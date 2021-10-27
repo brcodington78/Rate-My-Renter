@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import UserForm from '../Forms/UserForm/UserRegForm.js'
+import UserForm from '../Forms/UserForm/UserRegForm.js';
+
 
 
 function Auth() {

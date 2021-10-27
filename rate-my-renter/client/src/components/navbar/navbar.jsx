@@ -1,11 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import './stylesheets/nav.css';
 import './stylesheets/search.css';
 
 const Nav = (props) => {
 
-  const user = null;
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
+  console.log("user", user)
+
+  useEffect(() => {
+    const token = user?.token;
+    //eventually check for JWT
+
+    setUser(JSON.parse(localStorage.getItem('profile')))
+  },[])
 
   const displayRight = user ? (<div id="session-btns">
     <button id='logout-btn' className="session-btn">Logout</button>

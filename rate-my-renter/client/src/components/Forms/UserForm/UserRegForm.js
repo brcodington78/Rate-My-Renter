@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { GoogleLogin } from "react-google-login";
+import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom'
 
 function UserForm({isSignup, setIsSignup}) {
   let [username, setUsername] = useState("");
@@ -6,14 +9,13 @@ function UserForm({isSignup, setIsSignup}) {
   let [firstName, setFirstName] = useState("");
   let [lastName, setLastName] = useState("");
   let [email, setEmail] = useState("");
-  let [isLandLord, setisLandLord] = useState(false)
+  let [isLandLord, setisLandLord] = useState(false);
 
-  console.log("setIs", setIsSignup)
-  console.log("isSi", isSignup)
-  // useEffect(() => {
-  //   let firstNameInput = document.querySelector("#firstname-input");
-  //   firstNameInput.focus()
-  // }, [])
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+
+  
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -23,6 +25,23 @@ function UserForm({isSignup, setIsSignup}) {
     e.preventDefault()
     setIsSignup(!isSignup)
   }
+
+  const googleSuccess = async (res) => {
+      const result = res?.profileObj;
+      const token = res?.tokenId;
+
+      try {
+        dispatch({ type: 'AUTH', data: {result, token}})
+        history.push('/')
+      } catch (error) {
+        console.log(error);
+      }
+  };
+
+  const googleFailure = (error) => {
+    console.log(error)
+      console.log("Google Sign In was unsuccessful. Try Again Later")
+  };
   
 
   return (
@@ -94,9 +113,23 @@ function UserForm({isSignup, setIsSignup}) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Submit</button>
+        <GoogleLogin
+          clientId="875673568-t68j7u11cqvga2m7h9ulemt3ue4fk1g0.apps.googleusercontent.com"
+          render={(renderProps) => (
+            <button
+              className="google-login-button"
+              onClick={renderProps.onClick}
+            >Google Login</button>
+          )}
+          onSuccess={googleSuccess}
+          onFailure={googleFailure}
+          cookiePolicy="single_host_origin"
+        />
         <button onClick={switchMode}>
-          {isSignup ? "Already have an account? Log in!" : "Don't have an account? Sign Up!"}
-          </button>
+          {isSignup
+            ? "Already have an account? Log in!"
+            : "Don't have an account? Sign Up!"}
+        </button>
       </form>
     </div>
   );
