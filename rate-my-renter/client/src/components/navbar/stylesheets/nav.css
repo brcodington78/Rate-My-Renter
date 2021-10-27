@@ -35,7 +35,7 @@
   filter: brightness(90%);
 }
 
-#signup-btn {
+#signup-btn, #logout-btn {
   background: #01b585;
   color: white
 }
