@@ -25,6 +25,7 @@ function UserForm({isSignup, setIsSignup}) {
     let formData = {
       username,
       password,
+      confirmPassword,
       firstName,
       lastName,
       email,
@@ -128,6 +129,18 @@ function UserForm({isSignup, setIsSignup}) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {isSignup && (
+          <>
+          <label htmlFor="confirm-password-input">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password-input"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          </>
+        )}
         <button type="submit">Submit</button>
         <GoogleLogin
           clientId="875673568-t68j7u11cqvga2m7h9ulemt3ue4fk1g0.apps.googleusercontent.com"

@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/reviews'
+const API = axios.create({ baseURL: 'http://localhost:5000'})
 
-export const fetchReviews = () => axios.get(url);
-export const createReview = (newReview) => axios.post(url, newReview);
+
+
+export const fetchReviews = () => API.get('/reviews');
+export const createReview = (newReview) => API.post('/reviews', newReview);
+
+export const login = (formData) => API.post('/user/login', formData);
+export const signup = (formData) => API.post('/user/signup', formData)
