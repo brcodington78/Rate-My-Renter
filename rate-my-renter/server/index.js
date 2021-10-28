@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyparser from 'body-parser';
 import reviewRoutes from './routes/reviews.js';
+import userRoutes from "./routes/users.js";
 
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors())
 
 app.use("/reviews", reviewRoutes)
+app.use("/user", userRoutes)
 
 const CONNECTION_URL = "mongodb+srv://dev:poopybutt11@cluster0.tbzqw.mongodb.net/rateMyRenterDB?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;

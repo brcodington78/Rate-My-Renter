@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
 import {useDispatch} from 'react-redux';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+
+import {signup,login} from '../../../actions/auth';
 
 function UserForm({isSignup, setIsSignup}) {
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
+  let [confirmPassword, setConfirmPassword] = useState("")
   let [firstName, setFirstName] = useState("");
   let [lastName, setLastName] = useState("");
   let [email, setEmail] = useState("");
@@ -19,6 +22,19 @@ function UserForm({isSignup, setIsSignup}) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    let formData = {
+      username,
+      password,
+      firstName,
+      lastName,
+      email,
+      isLandLord
+    }
+    if(isSignup) {
+      dispatch(signup(formData, history))
+    } else {
+      dispatch(login(formData, history))
+    }
   }
 
   function switchMode(e) {
