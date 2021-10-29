@@ -7,6 +7,7 @@ const reviewSchema = mongoose.Schema({
     nicenessRating: Number,
     depositReturnRating: Number,
     hotnessRating: Number,
+    creatorId: {type: String, required: true},
     createdAt: {
         type: Date,
         default: new Date()

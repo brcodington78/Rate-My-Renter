@@ -3,7 +3,10 @@ import {useDispatch} from 'react-redux';
 import {createReview} from '../../../actions/reviews';
 
 function ReviewForm() {
-
+    const [user, setUser] = useState(
+      JSON.parse(localStorage.getItem("profile"))
+    );
+    console.log(user.result._id)
     const dispatch = useDispatch();
 
     let [reviewData, setReviewData] = useState({
@@ -13,6 +16,7 @@ function ReviewForm() {
         nicenessRating: 3,
         depositReturnRating: 3,
         hotnessRating: 3,
+        creatorId: user.result._id
         // Not sure if I need to include this if the database will automatically set the date
         // createdAt: {
         //     type: Date,

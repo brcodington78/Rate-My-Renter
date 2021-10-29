@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
 import Review from './ReviewCard'
-import CreateReview from './CreateReview';
+import ReviewForm from '../Forms/ReviewForm/ReviewForm';
 
 function Reviews() {
 
@@ -10,7 +10,7 @@ function Reviews() {
     return (
         <>
             <h1>Reviews</h1>
-            <CreateReview />
+            <ReviewForm />
             {reviews.map(review => {
                 return <Review info={review} />
             })}
