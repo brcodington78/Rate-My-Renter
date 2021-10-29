@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 import {useDispatch} from 'react-redux';
 import {createReview} from '../../../actions/reviews';
 
 function ReviewForm() {
-    const [user, setUser] = useState(
-      JSON.parse(localStorage.getItem("profile"))
+    
+    const user = useMemo(
+      () => JSON.parse(localStorage.getItem("profile")),
+      [localStorage.getItem("profile")]
     );
+
     console.log(user.result._id)
     const dispatch = useDispatch();
 
