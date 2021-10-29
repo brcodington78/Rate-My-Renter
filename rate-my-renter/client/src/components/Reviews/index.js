@@ -1,20 +1,19 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
-
-import Review from './Review/Review'
-
+import Review from './ReviewCard'
+import CreateReview from './CreateReview';
 
 function Reviews() {
 
     const reviews = useSelector((state) => state.reviews)
 
-    console.log(reviews)
-
     return (
         <>
             <h1>Reviews</h1>
-            <Review/>
-            <Review />
+            <CreateReview />
+            {reviews.map(review => {
+                return <Review info={review} />
+            })}
         </>
     )
 }
