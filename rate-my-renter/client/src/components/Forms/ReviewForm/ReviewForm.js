@@ -9,7 +9,7 @@ function ReviewForm() {
       [localStorage.getItem("profile")]
     );
 
-    console.log(user.result._id)
+    
     const dispatch = useDispatch();
 
     let [reviewData, setReviewData] = useState({
@@ -19,7 +19,7 @@ function ReviewForm() {
         nicenessRating: 3,
         depositReturnRating: 3,
         hotnessRating: 3,
-        creatorId: user.result._id
+        creatorId: user?.result._id
         // Not sure if I need to include this if the database will automatically set the date
         // createdAt: {
         //     type: Date,
