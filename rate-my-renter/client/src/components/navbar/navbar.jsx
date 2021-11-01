@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Link, useHistory, useLocation} from 'react-router-dom'
+import {Link, useHistory, useLocation} from 'react-router-dom';
+import decode from 'jwt-decode'
 import './stylesheets/nav.css';
 import './stylesheets/search.css';
 import { useDispatch } from 'react-redux';
@@ -18,12 +19,18 @@ const Nav = (props) => {
   //used to set the user if the user is logged in 
   useEffect(() => {
     const token = user?.token;
+    if (token) {
+      const decodedToken = decode(token);
+
+      if(decodedToken.exp * 1000 < new Date.getTime()) logout();
+    }
 
     setUser(JSON.parse(localStorage.getItem('profile')))
   },[location])
 
   const logout = () => {
     dispatch({ type: 'LOGOUT'});
+    
     history.push('/')
 
     setUser(null)
