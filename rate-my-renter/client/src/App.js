@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch, Link, HashRouter } from "react-router-dom";
 import Nav from "./components/navbar/navbar";
 import Home from "./components/Home/Home.js";
-import Auth from "./components/Auth/Auth.js"
+import Auth from "./components/Auth/Auth.js";
 import "./default.css";
 
 import {getReviews} from './actions/reviews'

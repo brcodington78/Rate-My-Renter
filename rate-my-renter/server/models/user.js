@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
     isLandLord: {type: Boolean, required: true},
+    reviews: [String],
     id: {type: String}
 
 })

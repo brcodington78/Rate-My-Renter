@@ -4,6 +4,7 @@ import cors from 'cors';
 import bodyparser from 'body-parser';
 import reviewRoutes from './routes/reviews.js';
 import userRoutes from "./routes/users.js";
+import landlordRoutes from "./routes/landlords.js"
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors())
 
 app.use("/reviews", reviewRoutes)
 app.use("/user", userRoutes)
+app.use("/landlords", landlordRoutes)
 
 const CONNECTION_URL = "mongodb+srv://dev:poopybutt11@cluster0.tbzqw.mongodb.net/rateMyRenterDB?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 8000;
