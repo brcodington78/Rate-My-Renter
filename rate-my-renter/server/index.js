@@ -15,9 +15,9 @@ app.use(express.json({limit: "30mb", extended: true}))
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors())
 
-app.use("/reviews", reviewRoutes)
-app.use("/user", userRoutes)
-app.use("/landlords", landlordRoutes)
+app.use("/api/reviews", reviewRoutes)
+app.use("/api/users", userRoutes)
+app.use("/api/landlords", landlordRoutes)
 
 const PORT = process.env.PORT || 8000;
 

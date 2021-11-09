@@ -1,3 +1,4 @@
+import Mongoose from 'mongoose';
 import Landlord from '../models/landlord.js';
 
 export const getLandlord = async (req, res) => {
@@ -12,9 +13,16 @@ export const getLandlord = async (req, res) => {
 
 export const updateLandlord = async (req, res) => {
     try {
-        
+        const { id: _id } = req.params;
+        const landlord = req.body
+
+        if(!Mongoose.Types.ObjectId.isValid(_id)) res.status(404).send('No landlord with that id.')
+
+        const updatedLandlord = await Landlord.findByIdAndUpdate(_id, landlord, {new: true});
+
+        res.json(updatedLandlord)
     } catch (error) {
-        
+        console.log(error)
     }
 }
 

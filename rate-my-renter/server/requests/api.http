@@ -1,13 +1,39 @@
 
+### Get Users
+
+GET http://127.0.0.1:8000/api/users
+Content-Type: application/json
+
+
+
+
+
+### Make a User
+POST http://127.0.0.1:8000/api/users/signup
+Content-Type: application/json
+
+{
+    "firstName": "Jenkin",
+    "lastName": "Shackleford",
+    "email": "jshackleford@gmail.com",
+    "username": "jshack",
+    "password": "123456",
+    "confirmPassword": "123456",
+    "isLandLord": false
+
+}
+
+
+
 ### Get Reviews
 
-GET http://127.0.0.1:8000/reviews
+GET http://127.0.0.1:8000/api/reviews
 Content-Type: application/json
 
 
 ### Make Review
 
-POST http://127.0.0.1:8000/reviews
+POST http://127.0.0.1:8000/api/reviews
 Content-Type: application/json
 
 {
@@ -18,3 +44,29 @@ Content-Type: application/json
     "depositReurnRating": 1,
     "creatorId": "1"
 }
+
+
+### Get all Landlords
+
+GET http://127.0.0.1:8000/api/landlords
+Content-Type: application/json
+
+
+### Make a Landlord
+
+POST http://127.0.0.1:8000/api/landlords
+Content-Type: application/json
+
+{
+    "name": "Zachary Vaillancourt"
+}
+
+### Update a Landlord 
+
+PATCH http://127.0.0.1:8000/api/landlords/6189dad711b474c2c3ea0533
+Content-Type: application/json
+
+{
+    "name": "Daniel Urbanski"
+}
+

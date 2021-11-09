@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-const reviewSchema = mongoose.Schema(
-  {
+const reviewSchema = mongoose.Schema({
     reviewText: String,
     priceRating: Number,
     houseRating: Number,
@@ -9,8 +8,8 @@ const reviewSchema = mongoose.Schema(
     depositReturnRating: Number,
     hotnessRating: Number,
     creatorId: { type: String, required: true },
-  },
-  { timestamps: true }
+},
+{ timestamps: true }
 );
 
 const Review = mongoose.model('Review', reviewSchema);

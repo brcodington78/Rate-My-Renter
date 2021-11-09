@@ -4,12 +4,13 @@ import {getLandlord, updateLandlord, deleteLandlord, getLandlords, createLandlor
 
 const router = express.Router();
 
-router.get('/', getLandlords)
-router.post("/", auth, createLandlord);
+router.get('/', getLandlords);
+//add auth as second parameter after testing
+router.post("/", createLandlord);
 
 router.route("/:id")
     .get(getLandlord)
-    .put(updateLandlord)
+    .patch(updateLandlord)
     .delete(deleteLandlord)
 // router.delete("/:id", deleteLandlord)
 
