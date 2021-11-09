@@ -67,6 +67,6 @@ export const deleteUser = async (req, res) => {
 
         res.json({ message: 'User successfully deleted'})
     } catch (error) {
-        console.log('something went wrong')
+        console.log('something went wrong when deleting the user')
     }
 }

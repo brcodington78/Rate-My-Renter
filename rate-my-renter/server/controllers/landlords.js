@@ -28,23 +28,25 @@ export const updateLandlord = async (req, res) => {
 
 export const deleteLandlord = async (req , res) => {
     try {
-        const { id: _id } = req.params;
+        console.log('hitting')
+        console.log(req.params)
+        const {id} = req.params;
         
 
-        if(!Mongoose.Types.ObjectId.isValid(_id)) res.status(404).send('No landlord with that id');
+        if(!Mongoose.Types.ObjectId.isValid(id)) res.status(404).send('No landlord with that id');
 
         await Landlord.findByIdAndDelete(id)
 
-        res.json({message: 'Post deleted successfully'});
+        res.json({message: 'Landlord deleted successfully'});
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
 export const getLandlords = async (req, res) => {
     try {
         const landlords = await Landlord.find();
-
+        res.status(200).json(landlords)
         console.log(landlords);
     } catch (error) { 
         res.status(404).json({ message: error.message})
