@@ -1,0 +1,20 @@
+
+### Get Reviews
+
+GET http://127.0.0.1:8000/reviews
+Content-Type: application/json
+
+
+### Make Review
+
+POST http://127.0.0.1:8000/reviews
+Content-Type: application/json
+
+{
+    "reviewText": "This is a test review, round 2",
+    "priceRating": 1,
+    "houseRating": 1,
+    "nicenessRating": 1,
+    "depositReurnRating": 1,
+    "creatorId": "1"
+}

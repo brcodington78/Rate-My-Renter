@@ -5,6 +5,7 @@ import {getReviews, createReview} from '../controllers/reviews.js';
 const router = express.Router();
 
 router.get("/", getReviews);
-router.post('/', auth, createReview);
+// put auth as the second parament for post when testing is done
+router.post('/', createReview);
 
 export default router;
