@@ -13,15 +13,20 @@ POST http://127.0.0.1:8000/api/users/signup
 Content-Type: application/json
 
 {
-    "firstName": "Jenkin",
-    "lastName": "Shackleford",
-    "email": "jshackleford@gmail.com",
-    "username": "jshack",
+    "firstName": "Brian",
+    "lastName": "Codington",
+    "email": "bcod14@gmail.com",
+    "username": "bcod",
     "password": "123456",
     "confirmPassword": "123456",
     "isLandLord": false
 
 }
+
+### Delete a User
+
+DELETE http://127.0.0.1:8000/api/users/617b76b7e9fd71c02a6436cb
+Content-Type: application/json
 
 
 

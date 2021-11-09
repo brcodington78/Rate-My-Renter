@@ -28,7 +28,14 @@ export const updateLandlord = async (req, res) => {
 
 export const deleteLandlord = async (req , res) => {
     try {
+        const { id: _id } = req.params;
         
+
+        if(!Mongoose.Types.ObjectId.isValid(_id)) res.status(404).send('No landlord with that id');
+
+        await Landlord.findByIdAndDelete(id)
+
+        res.json({message: 'Post deleted successfully'});
     } catch (error) {
         
     }

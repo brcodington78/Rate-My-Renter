@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import Mongoose from 'mongoose';
 
 import User from '../models/user.js';
 
@@ -46,6 +47,7 @@ export const signup = async (req, res) => {
 
 export const getUsers = async (req, res) => {
     try {
+        console.log('getting Users')
         const users = await User.find();
 
         res.status(200).json(users)
@@ -54,3 +56,17 @@ export const getUsers = async (req, res) => {
     }
 }
 
+export const deleteUser = async (req, res) => {
+    try {
+        console.log('hitting')
+        const {id} = req.params;
+        console.log(req.params)
+        if(!Mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No user with that id');
+
+        await User.findByIdAndRemove(id);
+
+        res.json({ message: 'User successfully deleted'})
+    } catch (error) {
+        console.log('something went wrong')
+    }
+}
