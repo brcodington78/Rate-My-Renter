@@ -1,18 +1,17 @@
 import mongoose from 'mongoose';
 
-const reviewSchema = mongoose.Schema({
+const reviewSchema = mongoose.Schema(
+  {
     reviewText: String,
     priceRating: Number,
     houseRating: Number,
     nicenessRating: Number,
     depositReturnRating: Number,
     hotnessRating: Number,
-    creatorId: {type: String, required: true},
-    createdAt: {
-        type: Date,
-        default: new Date()
-    }
-});
+    creatorId: { type: String, required: true },
+  },
+  { timestamps: true }
+);
 
 const Review = mongoose.model('Review', reviewSchema);
 
