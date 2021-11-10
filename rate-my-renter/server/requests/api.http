@@ -89,6 +89,6 @@ Content-Type: application/json
 
 ### Delete a Landlord
 
-DELETE http://127.0.0.1:8000/api/landlords/618a0828010d7c58ee1e35c5
+DELETE http://127.0.0.1:8000/api/landlords/618a0d62f2f9cb80c507b0fd
 Content-Type: application/json
 

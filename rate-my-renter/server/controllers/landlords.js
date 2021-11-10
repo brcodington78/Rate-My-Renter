@@ -28,12 +28,12 @@ export const updateLandlord = async (req, res) => {
 
 export const deleteLandlord = async (req , res) => {
     try {
-        console.log('hitting')
-        console.log(req.params)
         const {id} = req.params;
         
 
         if(!Mongoose.Types.ObjectId.isValid(id)) res.status(404).send('No landlord with that id');
+
+        await console.log("finding landlord", Landlord.findById(id))
 
         await Landlord.findByIdAndDelete(id)
 
