@@ -17,5 +17,5 @@ API.interceptors.request.use((req) => {
 export const fetchReviews = () => API.get('/reviews');
 export const createReview = (newReview) => API.post('/reviews', newReview);
 
-export const login = (formData) => API.post('/user/login', formData);
-export const signup = (formData) => API.post('/user/signup', formData)
+export const login = (formData) => API.post('api/users/login', formData);
+export const signup = (formData) => API.post('api/users/signup', formData)
