@@ -4,6 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch, Link, HashRouter } from "react-
 import Nav from "./components/navbar/navbar";
 import Home from "./components/Home/Home.js";
 import Auth from "./components/Auth/Auth.js";
+import LandLord from './components/Landlord/Landlord.js';
 import "./default.css";
 
 import {getReviews} from './actions/reviews'
@@ -25,6 +26,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path='/auth' exact component={Auth} />
+            <Route path='/landlord/:id' component={LandLord} />
           </Switch>
         </div>
       </BrowserRouter>
