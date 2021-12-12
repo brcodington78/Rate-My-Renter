@@ -1,6 +1,6 @@
 import express from "express";
 import auth from '../middleware/auth.js';
-import {getLandlord, updateLandlord, deleteLandlord, getLandlords, createLandlord} from '../controllers/landlords.js'
+import {getLandlord, updateLandlord, deleteLandlord, getLandlords, createLandlord, addReviewToLandlord} from '../controllers/landlords.js'
 
 const router = express.Router();
 
@@ -14,5 +14,7 @@ router.route("/:id")
     .delete(deleteLandlord)
 // router.delete("/:id", deleteLandlord)
 
+router.route("/reviews/:id")
+    .patch(addReviewToLandlord)
 
 export default router

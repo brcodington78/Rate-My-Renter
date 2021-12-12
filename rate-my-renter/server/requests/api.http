@@ -42,7 +42,7 @@ POST http://127.0.0.1:8000/api/reviews
 Content-Type: application/json
 
 {
-    "reviewText": "This is a test review, round 3",
+    "reviewText": "This is a test review, round 6",
     "priceRating": 1,
     "houseRating": 1,
     "nicenessRating": 1,
@@ -75,7 +75,7 @@ POST http://127.0.0.1:8000/api/landlords
 Content-Type: application/json
 
 {
-    "name": "Damien"
+    "name": "Kid Cod"
 }
 
 ### Update a Landlord 
@@ -84,11 +84,23 @@ PATCH http://127.0.0.1:8000/api/landlords/6189dad711b474c2c3ea0533
 Content-Type: application/json
 
 {
-    "name": "Daniel Urbanski"
+    "name": "Kid Cod"
 }
 
 ### Delete a Landlord
 
-DELETE http://127.0.0.1:8000/api/landlords/618a0d62f2f9cb80c507b0fd
+DELETE http://127.0.0.1:8000/api/landlords/6189cce5c564b7d74709fa8e
 Content-Type: application/json
 
+### get specific landlord
+
+GET http://127.0.0.1:8000/api/landlords/61b55075a42a8d5dcad27c4b
+Content-Type: application/json
+
+### add a review to a landlord profile
+PATCH http://127.0.0.1:8000/api/landlords/reviews/61b55075a42a8d5dcad27c4b
+Content-Type: application/json
+
+{
+    "reviewId": "61b551e392a07d9c8750f44c"
+}

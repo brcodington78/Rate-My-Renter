@@ -16,7 +16,7 @@ export const getReviews = async (req, res) => {
 
 export const createReview = async (req, res) => {
     const review = req.body
-
+    const landlordId = req.params
     const newReview = new Review(review)
 
     try {

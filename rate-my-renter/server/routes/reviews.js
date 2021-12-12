@@ -9,5 +9,6 @@ router.get("/", getReviews);
 router.post('/', createReview);
 router.patch('/:id', updateReview)
 router.delete('/:id', deleteReview)
+router.get('/:id', getReview)
 
 export default router;

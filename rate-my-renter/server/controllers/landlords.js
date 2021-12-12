@@ -3,9 +3,11 @@ import Landlord from '../models/landlord.js';
 
 export const getLandlord = async (req, res) => {
     try {
-        const landlord = await Landlord.findOne();
-
-        console.log(landlord);
+        console.log(req.params);
+        const {id} = req.params;
+        const landlord = await Landlord.findById(id);
+        
+        res.status(200).json(landlord)
     } catch (error) {
         res.status(404).json(json({ message: error.message}));
     }
@@ -24,6 +26,21 @@ export const updateLandlord = async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+export const addReviewToLandlord = async (req, res) => {
+    try {
+        console.log('hitting')
+        const {id: _id} = req.params;
+        const {reviewId} = req.body;
+        const updatedLandlord = await Landlord.findByIdAndUpdate(_id, { $push: { reviews: reviewId} })
+        console.log({updatedLandlord})
+
+        res.status(200).json(updatedLandlord)
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 export const deleteLandlord = async (req , res) => {
@@ -66,3 +83,4 @@ export const createLandlord = async (req, res) => {
         res.status(406).json({ message: error.message})
     }
 }
+
