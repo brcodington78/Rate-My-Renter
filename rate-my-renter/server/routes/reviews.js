@@ -1,6 +1,6 @@
 import express from "express";
 import auth from '../middleware/auth.js';
-import {getReviews, createReview, updateReview, deleteReview} from '../controllers/reviews.js';
+import {getReviews, createReview, updateReview, deleteReview, getLandLordReviews} from '../controllers/reviews.js';
 
 const router = express.Router();
 
@@ -9,6 +9,6 @@ router.get("/", getReviews);
 router.post('/', createReview);
 router.patch('/:id', updateReview)
 router.delete('/:id', deleteReview)
-router.get('/:id', getReview)
+router.get('/landlord-reviews', getLandLordReviews)
 
 export default router;

@@ -104,3 +104,14 @@ Content-Type: application/json
 {
     "reviewId": "61b551e392a07d9c8750f44c"
 }
+
+### get specific reviews of a landlord
+
+GET http://127.0.0.1:8000/api/reviews/landlord-reviews
+Content-Type: application/json
+
+{
+    "reviewIds": [
+    "6189c2e4dd92395a60ecd809",
+    "61b551e392a07d9c8750f44c"]
+}

@@ -59,3 +59,15 @@ export const deleteReview = async (req, res) => {
     console.log(error)
   }
 }
+
+//takes in an array of reviewIds and returns the actualy review objects
+export const getLandLordReviews = async (req,res) => {
+  try {
+    let {reviewIds} = req.body;
+    
+    let reviews = await Review.find({_id: {$in: reviewIds}});
+    res.status(200).json(reviews)
+  } catch (error) {
+    console.log(error)
+  }
+}
